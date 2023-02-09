@@ -7,13 +7,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpSpeed;
 
-    Rigidbody2D body;
+    Rigidbody2D player;
     bool onGround = true;
     void Awake() {                                                          //Happens on startup
-        body = GetComponent<Rigidbody2D>();                                 //Gets the Player and names it 'body'
+        player = GetComponent<Rigidbody2D>();                                 //Gets the Player and names it 'body'
     }
     void Update() {                                                         //Updates every frame
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, body.velocity.y);
+        player.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, player.velocity.y);
 
         if (Input.GetKey(KeyCode.Space) && onGround) {
             Jump();
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Jump() {
-        body.velocity = new Vector2(body.velocity.x, jumpSpeed);
+        player.velocity = new Vector2(player.velocity.x, jumpSpeed);
         onGround = false;
     }
 
