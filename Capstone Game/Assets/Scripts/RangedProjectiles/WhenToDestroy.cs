@@ -16,6 +16,8 @@ public class WhenToDestroy : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Enemy") {
             //Damage Enemy
+            var healthComponent = collision.GetComponent<EnemyHealth>();
+            healthComponent.takeDamage(1);
 
             Destroy(lemon);
         }

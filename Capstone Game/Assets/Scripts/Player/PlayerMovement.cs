@@ -30,6 +30,5 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground") {                         //Custom tag "Ground"
             onGround = true;
         }
-        
     }
 }
