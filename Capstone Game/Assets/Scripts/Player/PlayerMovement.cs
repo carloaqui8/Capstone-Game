@@ -30,5 +30,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground") {                         //Custom tag "Ground"
             onGround = true;
         }
+
+        if (collision.gameObject.tag == "Enemy") {
+            //Damage Player
+            var healthComponent = GetComponent<PlayerHealth>();
+            healthComponent.takeDamage(1);
+        }
     }
 }

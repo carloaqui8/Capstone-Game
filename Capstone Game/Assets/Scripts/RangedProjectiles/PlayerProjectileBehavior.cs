@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhenToDestroy : MonoBehaviour
+public class PlayerProjectileBehavior : MonoBehaviour
 {
     public GameObject lemon;
 
@@ -10,17 +10,20 @@ public class WhenToDestroy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground" ||
             collision.gameObject.tag == "Wall" ||
-            collision.gameObject.tag == "Ceiling") {
+            collision.gameObject.tag == "Ceiling")
+        {
 
             Destroy(lemon);
         }
-        else if (collision.gameObject.tag == "Enemy") {
+        else if (collision.gameObject.tag == "Enemy")
+        {
             //Damage Enemy
             var healthComponent = collision.GetComponent<EnemyHealth>();
             healthComponent.takeDamage(1);
 
             Destroy(lemon);
         }
+        else { }
     }
 
 }

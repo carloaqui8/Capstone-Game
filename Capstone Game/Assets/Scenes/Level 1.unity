@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 358143499}
   - component: {fileID: 358143502}
   - component: {fileID: 358143503}
+  - component: {fileID: 358143504}
   m_Layer: 0
   m_Name: GroundEnemy
   m_TagString: Enemy
@@ -269,9 +270,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9631fb4d721d11e47b33a2c519ccf846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 358143498}
-  maxHealth: 10
+  entity: {fileID: 0}
+  maxHealth: 5
   currentHealth: 0
+--- !u!114 &358143504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358143498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bfb7060c45ad345a2d063785159964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2007742524}
+  enemyLemon: {fileID: 5727095153477744718, guid: 94a41d2096f479b4cb9c9847d98d85af, type: 3}
+  moveSpeed: 1
+  jumpSpeed: 18
+  bulletSpeed: 15
+  timeBetweenJumps: 4
+  timeBetweenAttacks: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 980088322}
   lemon: {fileID: 2082959807437709558, guid: 059b859ca7c532d4c8e0ee5f0954414a, type: 3}
-  lemonSpeed: 25
+  lemonSpeed: 15
   sword: {fileID: 2193663792273249892, guid: 7838f1a3070a8d2409f9902b2cfca450, type: 3}
   swordSpeed: 25
   timeBetweenAttacks: 0.25
@@ -919,9 +939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0846f02d3d9112944aa30fb78a86d6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
+  entity: {fileID: 2007742524}
   maxHealth: 20
   currentHealth: 0
+  timeBetweenRegens: 10
 --- !u!1001 &5419284746115469475
 PrefabInstance:
   m_ObjectHideFlags: 0
