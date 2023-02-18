@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
     public void takeDamage(int amount)
     {
         currentHealth -= amount;
+        flashStart();
 
         if (currentHealth > 0)
         {
@@ -38,5 +39,14 @@ public class PlayerHealth : MonoBehaviour
             //dedge
             Destroy(entity);
         }
+    }
+    void flashStart()
+    {
+        entity.GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("flashStop", 0.25f);
+    }
+    void flashStop()
+    {
+        entity.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

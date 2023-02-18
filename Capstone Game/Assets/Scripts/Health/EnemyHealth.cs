@@ -21,15 +21,25 @@ public class EnemyHealth : MonoBehaviour
     public void takeDamage(int amount)
     {
         currentHealth -= amount;
+        flashStart();
 
         if (currentHealth > 0)
         {
             //alive
+         
         }
         else
         {
             //dedge
             Destroy(entity);
         }
+    }
+
+    void flashStart() {
+        entity.GetComponent<SpriteRenderer>().color = Color.black;
+        Invoke("flashStop", 0.15f);
+    }
+     void flashStop() {
+        entity.GetComponent<SpriteRenderer>().color = Color.red;
     }
 }
