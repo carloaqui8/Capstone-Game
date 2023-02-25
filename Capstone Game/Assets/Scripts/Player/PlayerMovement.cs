@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpSpeed;
 
     Rigidbody2D player;
-    bool onGround = true;
+    public bool onGround = true;
     void Awake() {                                                          //Happens on startup
         player = GetComponent<Rigidbody2D>();                                 //Gets the Player and names it 'body'
     }

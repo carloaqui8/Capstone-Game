@@ -38,13 +38,13 @@ public class EnemyAI_1G : MonoBehaviour
     }
 
     void Attack() {
-        GameObject bullet = Instantiate(enemyLemon) as GameObject;                  //Creates bullet
-        bullet.transform.position = transform.position;                             //Starting at Player
+        GameObject bullet = Instantiate(enemyLemon) as GameObject;                     //Creates bullet
+        bullet.transform.position = transform.position;                                //Starting at my position
 
-        if (whoToChase.transform.position.x > transform.position.x) {
+        if (whoToChase.transform.position.x > transform.position.x) {                  //shoot right
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * bulletSpeed;
         }
-        else {
+        else {                                                                         //shoot left
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * bulletSpeed;
         }
         attackCD = 0;

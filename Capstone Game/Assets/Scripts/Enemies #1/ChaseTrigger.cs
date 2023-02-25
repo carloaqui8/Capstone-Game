@@ -8,8 +8,7 @@ public class ChaseTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
+        if (collision.CompareTag("Player")) {
             foreach(EnemyAI_1F enemy in enemyArray)
             {
                 enemy.playerInRange = true;

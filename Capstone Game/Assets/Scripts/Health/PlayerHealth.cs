@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
         if (regenCD >= timeBetweenRegens) {
             currentHealth += 1;
             regenCD = 0;
+            flashHeal();
         }
     }
 
@@ -43,6 +44,12 @@ public class PlayerHealth : MonoBehaviour
     void flashStart()
     {
         entity.GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("flashStop", 0.25f);
+    }
+
+    void flashHeal()
+    {
+        entity.GetComponent<SpriteRenderer>().color = Color.green;
         Invoke("flashStop", 0.25f);
     }
     void flashStop()
