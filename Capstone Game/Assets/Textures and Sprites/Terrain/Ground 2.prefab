@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5419284747004830520, guid: 08a5476a2a6ba41479d7e082cdcdde1f, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 4491de06fce6e6748924391e7d86cc58, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5419284747004830521, guid: 08a5476a2a6ba41479d7e082cdcdde1f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419284747004830523, guid: 08a5476a2a6ba41479d7e082cdcdde1f, type: 3}
       propertyPath: m_Name
-      value: Ground
+      value: Ground 2
       objectReference: {fileID: 0}
     - target: {fileID: 5419284747178363778, guid: 08a5476a2a6ba41479d7e082cdcdde1f, type: 3}
       propertyPath: m_Color.b

@@ -2,44 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sequence : Node
+namespace BehaviorTree
 {
-    //properties
-    protected List<Node> nodes = new List<Node>();
-
-    //methods
-    public Sequence(List<Node> nodes)                   //constructor
+    public class Sequence : Node
     {
-        this.nodes = nodes;
-    }
+        //properties
+        public Sequence() : base() { }          //Constructor calls Node Constructor
+        public Sequence(List<Node> children) : base(children) { }   //Same with this one
 
-    public override NodeState Evaluate()
-    {
-        bool anyNodeRunning = false;
-        foreach(var node in nodes)
+        //methods
+        public override NodeState Evaluate()
         {
-            switch (node.Evaluate())
+            bool aChildRunning = false;
+            
+            foreach(Node node in children)
             {
-                case NodeState.RUNNING:
-                    anyNodeRunning = true;
-                    break;
-                case NodeState.SUCCESS:
-                    break;
-                case NodeState.FAILURE:
-                    _nodeState = NodeState.FAILURE;
-                    return _nodeState;
-                default:
-                    break;
+                switch(node.Evaluate())
+                {
+                    case NodeState.FAILURE:
+                        state = NodeState.FAILURE;
+                        return state;
+                    case NodeState.SUCCESS:
+                        break;
+                    case NodeState.RUNNING:
+                        aChildRunning = true;
+                        break;
+                    default:
+                        state = NodeState.SUCCESS;
+                        return state;
+                }
             }
+            if (aChildRunning)
+            {
+                state = NodeState.RUNNING;
+            }
+            else
+            {
+                state = NodeState.SUCCESS;
+            }
+            return state;
         }
-        if (anyNodeRunning)
-        {
-            _nodeState = NodeState.RUNNING;
-        }
-        else
-        {
-            _nodeState = NodeState.SUCCESS;
-        }
-        return _nodeState;
     }
 }

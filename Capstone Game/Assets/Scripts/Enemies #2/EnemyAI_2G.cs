@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI_2G : MonoBehaviour
+using BehaviorTree;
+public class EnemyAI_2G : BehaviorTree.Tree
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform[] points;
+    public static float speed = 2f;
 
-    // Update is called once per frame
-    void Update()
+    protected override Node CreateTree()
     {
-        
+        Node root = new PatrolNode(transform, points);
+
+        return root;
     }
 }

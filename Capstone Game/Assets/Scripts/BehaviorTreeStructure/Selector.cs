@@ -2,36 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Selector : Node
+namespace BehaviorTree
 {
-    //properties
-    protected List<Node> nodes = new List<Node>();
-
-    //methods
-    public Selector(List<Node> nodes)                           //constructor
+    public class Selector : Node
     {
-        this.nodes = nodes;
-    }
+        //properties
+        public Selector() : base() { }          //Constructor calls Node Constructor
+        public Selector(List<Node> children) : base(children) { }   //Same with this one
 
-    public override NodeState Evaluate()
-    {
-        foreach (var node in nodes)
+        //methods
+        public override NodeState Evaluate()
         {
-            switch (node.Evaluate())
+            foreach (Node node in children)
             {
-                case NodeState.RUNNING:
-                    _nodeState = NodeState.RUNNING;
-                    return _nodeState;
-                case NodeState.SUCCESS:
-                    _nodeState = NodeState.SUCCESS;
-                    return _nodeState;
-                case NodeState.FAILURE:
-                    break;
-                default:
-                    break;
+                switch (node.Evaluate())
+                {
+                    case NodeState.FAILURE:
+                        break;
+                    case NodeState.SUCCESS:
+                        state = NodeState.SUCCESS;
+                        return state;
+                    case NodeState.RUNNING:
+                        state = NodeState.SUCCESS;
+                        return state;
+                    default:
+                        break;
+                }
             }
+            state = NodeState.FAILURE;
+            return state;
         }
-        _nodeState = NodeState.FAILURE;
-        return _nodeState;
     }
 }
