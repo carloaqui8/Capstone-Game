@@ -18,15 +18,15 @@ namespace BehaviorTree
                 switch (node.Evaluate())
                 {
                     case NodeState.FAILURE:
-                        break;
+                        continue;
                     case NodeState.SUCCESS:
                         state = NodeState.SUCCESS;
                         return state;
                     case NodeState.RUNNING:
-                        state = NodeState.SUCCESS;
+                        state = NodeState.RUNNING;
                         return state;
                     default:
-                        break;
+                        continue;
                 }
             }
             state = NodeState.FAILURE;

@@ -40,6 +40,6 @@ public class EnemyHealth : MonoBehaviour
         Invoke("flashStop", 0.15f);
     }
      void flashStop() {
-        entity.GetComponent<SpriteRenderer>().color = Color.red;
+        entity.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

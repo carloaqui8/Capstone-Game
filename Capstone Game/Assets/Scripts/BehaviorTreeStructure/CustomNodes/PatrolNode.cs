@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 using BehaviorTree;
 public class PatrolNode : Node
 {
@@ -27,7 +26,7 @@ public class PatrolNode : Node
         else 
         {
             enemy.position = Vector2.MoveTowards(enemy.position, points[pointIndex].position, EnemyAI_2G.speed * Time.deltaTime);
-            //enemy.LookAt(points[pointIndex].position);
+            //enemy.LookAt(points[pointIndex].position);        //if i want the object to actually turn around
         }
 
         state = NodeState.RUNNING;

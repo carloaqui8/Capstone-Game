@@ -23,10 +23,10 @@ namespace BehaviorTree
                         state = NodeState.FAILURE;
                         return state;
                     case NodeState.SUCCESS:
-                        break;
+                        continue;
                     case NodeState.RUNNING:
                         aChildRunning = true;
-                        break;
+                        continue;
                     default:
                         state = NodeState.SUCCESS;
                         return state;
