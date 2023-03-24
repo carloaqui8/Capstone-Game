@@ -6,7 +6,7 @@ using BehaviorTree;
 public class EnemyAI_2F : BehaviorTree.Tree
 {
     public Transform[] points;
-    public static float speed = 4f;
+    public static float speed = 2f;
     public static float bulletSpeed = 5f;
     public static float viewRange = 5f;
     public static float timeBetweenAttacks = .75f;
@@ -18,10 +18,10 @@ public class EnemyAI_2F : BehaviorTree.Tree
         {
             new Sequence(new List<Node>
             {
-                new CheckInRangeNode(transform),
-                new ShootAtTargetNode(transform, projectile)
+                new CheckInRangeNode2(transform),
+                new ShootAtTargetNode2(transform, projectile)
             }),
-            new PatrolNode(transform, points)
+            new PatrolNode2(transform, points)
         });
 
         return root;
