@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7449526314554331344}
   - component: {fileID: 7449526314554331345}
   m_Layer: 0
-  m_Name: Ceiling
+  m_Name: Ceiling 3
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.39607844, g: 0.16470589, b: 0, a: 1}
+  m_Color: {r: 0.46226418, g: 0, b: 0.015128411, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.13333334, g: 0.67058825, b: 0, a: 1}
+  m_Color: {r: 0.6792453, g: 0.4519842, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
