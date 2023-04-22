@@ -6,7 +6,7 @@ using BehaviorTree;
 public class EnemyAI_Boss2 : BehaviorTree.Tree
 {
     public Transform[] points;
-    public static float speed = 2f;
+    public static float speed = 4f;
     public static float bulletSpeed = 15f;
     public static float timeBetweenAttacks = 1.5f;
     public static float viewRange = 6f;

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using BehaviorTree;
-public class EnemyAI_3G : BehaviorTree.Tree
+public class EnemyAI_Boss3 : BehaviorTree.Tree
 {
     public Transform[] points;
-    public static float speed = 2f;
+    public static float speed = 3f;
     public static float viewRange = 6f;
-    public static float jumpSpeed = 18f;
+    public GameObject[] minions;
+    public static float timeBetweenSummons = 2.5f;
+    public static float timeBetweenSprays = 2f;
 
-    public static float rushSpeed = 2f;
-    public static float projSpeed = 10f;
     public GameObject projectile;
 
     protected override Node CreateTree()
@@ -21,9 +21,12 @@ public class EnemyAI_3G : BehaviorTree.Tree
             new Sequence(new List<Node>
             {
                 new CheckRange(transform, viewRange),
-                new ShootPlayer(transform, projectile, projSpeed),
-                new RushX(transform, rushSpeed),
-                new Jump(transform, jumpSpeed)
+                new RushX(transform, speed),
+                new Selector(new List<Node>
+                {
+                    new ExtremeSpray(transform, projectile, timeBetweenSprays),
+                    new SummonEnemy(transform, minions, timeBetweenSummons)
+                })
             }),
             new IdlePatrol(transform, points, speed)
         });

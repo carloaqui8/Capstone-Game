@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using BehaviorTree;
-public class Rush : Node
+public class RushX : Node
 {
     private Transform enemy;
     private float rushSpeed;
 
-    public Rush(Transform transform, float rushSpeed)
+    public RushX(Transform transform, float rushSpeed)
     {
         this.enemy = transform;
         this.rushSpeed = rushSpeed;
@@ -24,9 +24,14 @@ public class Rush : Node
             return state;
         }
 
-        Vector2 targetLocation = player.position;              //Take snapshot of where player is
-
-        enemy.position = Vector2.MoveTowards(enemy.position, new Vector2(player.position.x, 0), rushSpeed * Time.deltaTime);
+        if (enemy.position.x > player.position.x)
+        {
+            enemy.position = Vector2.MoveTowards(enemy.position, new Vector2(-23, 0), rushSpeed * Time.deltaTime);
+        }
+        else
+        {
+            enemy.position = Vector2.MoveTowards(enemy.position, new Vector2(100, 0), rushSpeed * Time.deltaTime);
+        }
         if (enemy.GetComponent<EnemyHealth>().currentHealth <= 10)
         {
             rushSpeed = 7f;
