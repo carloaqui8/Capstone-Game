@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public GameObject entity;
     public int maxHealth = 20;
-    public int currentHealth;
+    public float currentHealth;
     void Start()
     {
         currentHealth = maxHealth;

@@ -46,18 +46,23 @@ public class PointAndAttack : MonoBehaviour
         }
         else { }
 
+        if (!PauseMenu.isPaused)
+        {
+            if (Input.GetMouseButton(0) && attackCooldown >= timeBetweenAttacks)
+            {          //Left click
+                       //Actual damage stuff
+                MeleeAttack();
 
-        if (Input.GetMouseButton(0) && attackCooldown >= timeBetweenAttacks) {          //Left click
-            //Actual damage stuff
-            MeleeAttack();
-            
-        }
-        else if (Input.GetMouseButton(1) && attackCooldown >= timeBetweenAttacks) {     //Right click
-            float distance = difference.magnitude;
-            Vector2 direction = difference / distance;
-            direction.Normalize();
+            }
+            else if (Input.GetMouseButton(1) && attackCooldown >= timeBetweenAttacks)
+            {     //Right click
+                float distance = difference.magnitude;
+                Vector2 direction = difference / distance;
+                direction.Normalize();
 
-            RangedAttack(direction, rotationZ);
+                RangedAttack(direction, rotationZ);
+            }
+            else { }
         }
         else { }
     }

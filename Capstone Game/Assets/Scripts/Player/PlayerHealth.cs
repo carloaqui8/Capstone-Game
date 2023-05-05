@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public GameObject entity;
     public int maxHealth = 20;
-    public int currentHealth;
+    public float currentHealth;
     public int timeBetweenRegens = 10;
     private float regenCD;
+    public Image currentHealthBar;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -17,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentHealthBar.fillAmount = currentHealth / 20;
         regenCD += Time.deltaTime;
 
         if (regenCD >= timeBetweenRegens) {
@@ -29,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
     public void takeDamage(int amount)
     {
         currentHealth -= amount;
+
         flashStart();
 
         if (currentHealth > 0)
