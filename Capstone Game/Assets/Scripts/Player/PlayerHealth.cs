@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public int respawnScene;
     public GameObject entity;
     public int maxHealth = 20;
     public float currentHealth;
@@ -43,7 +45,8 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             //dedge
-            Destroy(entity);
+            currentHealth = maxHealth;
+            SceneManager.LoadScene(respawnScene);
         }
     }
     void flashStart()

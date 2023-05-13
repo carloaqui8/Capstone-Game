@@ -6434,6 +6434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0846f02d3d9112944aa30fb78a86d6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnScene: 1
   entity: {fileID: 2007742524}
   maxHealth: 20
   currentHealth: 0

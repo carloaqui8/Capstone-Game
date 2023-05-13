@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -32,6 +33,18 @@ public class EnemyHealth : MonoBehaviour
         {
             //dedge
             Destroy(entity);
+            if (entity.name == "Boss1")
+            {
+                SceneManager.LoadScene(2);
+            }
+            else if (entity.name == "Boss2")
+            {
+                SceneManager.LoadScene(3);
+            }
+            else if (entity.name == "Boss3")
+            {
+                SceneManager.LoadScene(4);
+            }
         }
     }
 
