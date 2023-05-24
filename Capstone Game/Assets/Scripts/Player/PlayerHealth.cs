@@ -12,6 +12,9 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     public int timeBetweenRegens = 10;
     private float regenCD;
+    public float timeBetweenHits = 1f;
+    public float iFrameCD;
+
     public Image currentHealthBar;
 
     void Start()
@@ -23,7 +26,9 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         currentHealthBar.fillAmount = currentHealth / 20;
+
         regenCD += Time.deltaTime;
+        iFrameCD += Time.deltaTime;
 
         if (regenCD >= timeBetweenRegens) {
             currentHealth += 1;
@@ -34,20 +39,24 @@ public class PlayerHealth : MonoBehaviour
 
     public void takeDamage(int amount)
     {
-        currentHealth -= amount;
-
-        flashStart();
-
-        if (currentHealth > 0)
+        if (iFrameCD >= timeBetweenHits)
         {
-            //alive
+            currentHealth -= amount;
+            iFrameCD = 0;
+            flashStart();
+
+            if (currentHealth > 0)
+            {
+                //alive
+            }
+            else
+            {
+                //dedge
+                currentHealth = maxHealth;
+                SceneManager.LoadScene(respawnScene);
+            }
         }
-        else
-        {
-            //dedge
-            currentHealth = maxHealth;
-            SceneManager.LoadScene(respawnScene);
-        }
+        else { }
     }
     void flashStart()
     {

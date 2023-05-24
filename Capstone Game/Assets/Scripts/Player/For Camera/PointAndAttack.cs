@@ -48,13 +48,13 @@ public class PointAndAttack : MonoBehaviour
 
         if (!PauseMenu.isPaused)
         {
-            if (Input.GetMouseButton(0) && attackCooldown >= timeBetweenAttacks)
+            if (Input.GetMouseButtonDown(0) && attackCooldown >= timeBetweenAttacks)
             {          //Left click
                        //Actual damage stuff
                 MeleeAttack();
 
             }
-            else if (Input.GetMouseButton(1) && attackCooldown >= timeBetweenAttacks)
+            else if (Input.GetMouseButtonDown(1) && attackCooldown >= timeBetweenAttacks)
             {     //Right click
                 float distance = difference.magnitude;
                 Vector2 direction = difference / distance;
